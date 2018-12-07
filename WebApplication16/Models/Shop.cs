@@ -8,6 +8,7 @@ namespace WebApplication16.Models
 {
     public class Shop
     {
+
         public object toy;
         internal int shopId;
 
@@ -22,5 +23,7 @@ namespace WebApplication16.Models
 
         [StringLength(50)]
         public string Categories { get; set; }
+
+
     }
 }
