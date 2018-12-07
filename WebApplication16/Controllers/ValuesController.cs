@@ -6,13 +6,13 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace WebApplication16.Controllers
 {
-    [Rout("api/[controller]")]
+    [Route("api/[controller]")]
     [ApiController]
     public class ValuesController : ControllerBase
     {
         // GET api/values
         [HttpGet]
-        public ActioResult<IEnumerable<string>> Get()
+        public ActionResult<IEnumerable<string>> Get()
         {
             return new string[] { "value1", "value2" };
         }
@@ -21,7 +21,7 @@ namespace WebApplication16.Controllers
         [HttpGet("{id}")]
         public ActionResult<string> Get(int id)
         {
-            retur "value";
+            return "value";
         }
 
         // POST api/values
@@ -30,7 +30,7 @@ namespace WebApplication16.Controllers
         {
         }
 
-        // PU api/values/5
+        // PUT api/values/5
         [HttpPut("{id}")]
         public void Put(int id, [FromBody] string value)
         {
