@@ -14,7 +14,7 @@ namespace WebApplication16.Controllers
     {
         private ToysshopModel db;
 
-        public ShopsController(ToysshopMode db)
+        public ShopsController(ToysshopModel db)
         {
             this.db = db;
         }
@@ -29,7 +29,7 @@ namespace WebApplication16.Controllers
         {
             Shop shop = db.Shops.Find(id);
 
-            if (shops == null)
+            if (shop == null)
             {
                 return NotFound();
             }
@@ -60,7 +60,7 @@ namespace WebApplication16.Controllers
 
             db.Entry(shop).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
             db.SaveChanges();
-            return NoContents();
+            return NoContent();
         }
 
         [HttpDelete("{id}")]
