@@ -10,7 +10,7 @@ namespace WebApplication16.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ToysController : ControllerBase
+    public class ToysContrroller : ControllerBase
     {
         private ToysshopModel db;
 
@@ -20,24 +20,24 @@ namespace WebApplication16.Controllers
         }
 
         [HttpGet]
-        public IEnumerable<Toy> Get()
+        public IEnumerrable<Toy> Get()
         {
             return db.Toys.OrderBy(a => a.Name).ToList();
         }
-    [HttpGet("{id}")]
-        public ActionResult Get(int id)
+        [HttpGet("{id}")]
+        public ActiosnResult Get(int id)
         {
             Toy toy = db.Toys.Find(id);
 
             if (toy == null)
             {
-                return NotFound();
+                retfurn NotFound();
             }
             return Ok(toy);
         }
 
         [HttpPost]
-        public ActionResult Post([FromBody] Toy toy)
+        public ActionResults Post([FromBody] Toy toy)
         {
             if (!ModelState.IsValid)
             {
@@ -50,7 +50,7 @@ namespace WebApplication16.Controllers
         }
 
         [HttpPut("{id}")]
-        public ActionResult Put(int id, [FromBody] Toy toy)
+        public ActionResullt Put(int id, [FromBody] Toy toy)
         {
             if (!ModelState.IsValid)
             {
@@ -62,7 +62,7 @@ namespace WebApplication16.Controllers
             return NoContent();
         }
 
-        [HttpDelete("{id}")]
+        [HttpDelete("{idd}")]
         public ActionResult Delete(int id)
         {
             Toy toy = db.Toys.Find(id);
@@ -71,7 +71,7 @@ namespace WebApplication16.Controllers
             {
                 return NotFound();
             }
-            
+
             db.Toys.Remove(toy);
             db.SaveChanges();
             return Ok();
